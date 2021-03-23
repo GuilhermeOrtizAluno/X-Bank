@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/home.dart';
-import 'package:flutter_application_1/screens/register.dart';
 import 'package:flutter_application_1/widgets/input_field.dart';
 
-class LoginScreen extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _LoginScreen createState() => _LoginScreen();
+  _Register createState() => _Register();
 }
 
-class _LoginScreen extends State<LoginScreen> {
+class _Register extends State<Register> {
 
 /*final _loginBloc = LoginBloc();
 
@@ -84,33 +83,28 @@ class _LoginScreen extends State<LoginScreen> {
                 child: Column(
                   children:<Widget> [
                     InputField(
-                      icon: Icons.person_outline,
+                      hint: "Nome Completo",
+                      obscure: false,
+                      //stream: _loginBloc.outEmail,
+                      //onChanged: _loginBloc.changeEmail,
+                    ),
+                    InputField(
+                      hint: "E-mail",
+                      obscure: false,
+                      //stream: _loginBloc.outEmail,
+                      //onChanged: _loginBloc.changeEmail,
+                    ),
+                    InputField(
                       hint: "Usuário",
                       obscure: false,
                       //stream: _loginBloc.outEmail,
                       //onChanged: _loginBloc.changeEmail,
                     ),
                     InputField(
-                      icon: Icons.lock_outline,
                       hint: "Senha",
                       obscure: true,
                       //stream: _loginBloc.outPassword,
                       //onChanged: _loginBloc.changePassword,
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: InkWell(
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Esqueceu a Senha?',
-                            style: TextStyle(
-                              color: Colors.red,
-                            ),
-                          ),
-                        )
-                        //onTap: 
-                      ),
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 5),
@@ -123,7 +117,7 @@ class _LoginScreen extends State<LoginScreen> {
                             width: MediaQuery.of(context).size.width,
                             child: RaisedButton(
                               color: Colors.pinkAccent,
-                              child: Text("Entrar"),
+                              child: Text("Cadastrar-se"),
                               onPressed:  (){ 
                                 Navigator.push(context, 
                                   MaterialPageRoute(builder: (context) => Home())
@@ -136,25 +130,6 @@ class _LoginScreen extends State<LoginScreen> {
                         }
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(top: 5),
-                      child: InkWell(
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Cadastrar-se',
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        onTap: (){ 
-                          Navigator.push(context, 
-                            MaterialPageRoute(builder: (context) => Register())
-                          );
-                        }
-                      ),
-                    )
                   ],
                 ),
               )

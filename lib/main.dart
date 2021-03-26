@@ -1,8 +1,11 @@
+import 'package:XBank/screens/recuperar_senha.dart';
+import 'package:XBank/screens/transferencia.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/transferencia.dart';
+import './widgets/input_field.dart';
+import 'package:get/get.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(GetMaterialApp(
     title: 'title',
     home: new MyApp(),
   ));
@@ -42,11 +45,14 @@ class MyApp extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                     side: BorderSide(color: Color.fromRGBO(0, 160, 227, 1))),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => RecuperarSenha());
+                },
                 padding: EdgeInsets.all(10.0),
                 color: Colors.blue,
                 textColor: Colors.white,
-                child: Text("Teste Cadastro", style: TextStyle(fontSize: 15)),
+                child: Text("Teste Recuperar Senha",
+                    style: TextStyle(fontSize: 15)),
               ),
             ),
           ],

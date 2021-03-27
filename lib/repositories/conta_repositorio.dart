@@ -1,8 +1,8 @@
 import 'dart:collection';
-import 'conta.dart';
-import 'corrente.dart';
-import 'corrente.dart';
-import 'poupanca.dart';
+import '../controllers/conta.dart';
+import '../models/corrente.dart';
+import '../models/corrente.dart';
+import '../models/poupanca.dart';
 import 'package:flutter/cupertino.dart';
 
 class Repositorio {

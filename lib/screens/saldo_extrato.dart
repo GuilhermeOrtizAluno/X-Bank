@@ -1,13 +1,13 @@
-import 'package:ba/classe/saldoeextrato/conta/corrente.dart';
-import 'package:ba/classe/saldoeextrato/conta/poupanca.dart';
-import 'package:ba/classe/saldoeextrato/historicotransacao/historico.dart';
-import 'package:ba/classe/saldoeextrato/historicotransacao/transacao.dart';
+import 'package:ba/models/corrente.dart';
+import 'package:ba/models/poupanca.dart';
+import 'package:ba/controllers/historico.dart';
+import 'package:ba/models/transacao.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'conta/conta.dart';
-import 'historicotransacao/historico.dart';
-import 'conta/conta.dart';
-import 'conta/repositorio.dart';
+import '../controllers/conta.dart';
+import '../controllers/historico.dart';
+import '../controllers/conta.dart';
+import '../repositories/conta_repositorio.dart';
 
 class Saldo extends StatefulWidget {
   Saldo({Key key}) : super(key: key);

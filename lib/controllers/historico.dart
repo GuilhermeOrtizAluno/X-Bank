@@ -1,5 +1,5 @@
-import 'transacao.dart';
-import 'repositorio.dart';
+import '../models/transacao.dart';
+import '../repositories/historico_repositorio.dart';
 
 class Historico {
   Repositorio repositorio;

@@ -1,8 +1,10 @@
+import 'package:ba/screens/paga.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:ba/classe/Menu.dart';
-import 'package:ba/classe/saldoeextrato/historicotransacao/repositorio.dart';
-import 'package:ba/classe/saldoeextrato/saldo_extrato.dart';
+import 'package:ba/screens/Menu.dart';
+import 'package:ba/repositories/historico_repositorio.dart';
+import 'package:ba/screens/saldo_extrato.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(BankX());
@@ -11,7 +13,7 @@ void main() {
 class BankX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Bank X',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

@@ -1,8 +1,9 @@
-import 'package:ba/classe/pagaconta/paga.dart';
-import 'package:ba/classe/saldoeextrato/historicotransacao/historico.dart';
-import 'package:ba/classe/saldoeextrato/historicotransacao/transacao.dart';
-import 'package:ba/classe/saldoeextrato/saldo_extrato.dart';
+import 'package:ba/screens/paga.dart';
+import 'package:ba/controllers/historico.dart';
+import 'package:ba/models/transacao.dart';
+import 'package:ba/screens/saldo_extrato.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -36,10 +37,7 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.all(8),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Saldo()),
-                  );
+                  Get.to(() => Saldo());
                 },
                 child: Text("Saldo"),
               ),
@@ -48,10 +46,7 @@ class _MenuState extends State<Menu> {
               padding: const EdgeInsets.all(8),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Paga()),
-                  );
+                  Get.to(() => Paga());
                 },
                 child: Text("Pagar"),
               ),

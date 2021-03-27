@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:ba/classe/saldoeextrato/historicotransacao/transacao.dart';
+import 'package:ba/models/transacao.dart';
 import 'package:flutter/cupertino.dart';
 
 class Repositorio {

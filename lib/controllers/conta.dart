@@ -1,6 +1,6 @@
-import 'poupanca.dart';
-import 'repositorio.dart';
-import 'corrente.dart';
+import '../models/poupanca.dart';
+import '../repositories/conta_repositorio.dart';
+import '../models/corrente.dart';
 
 class Conta {
   Repositorio repositorio;

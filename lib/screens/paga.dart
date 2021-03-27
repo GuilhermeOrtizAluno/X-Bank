@@ -41,11 +41,10 @@ class Paga extends StatelessWidget {
                                 offset: Offset(0.0, 0.75))
                           ],
                         ),
-                        padding: EdgeInsets.all(16.0),
+                        padding: EdgeInsets.all(1.0),
                         child: Column(
                           children: <Widget>[
                             Container(
-                              //Input: "E-Mail"
                               margin: EdgeInsets.only(top: 10, bottom: 5),
                               color: Color.fromRGBO(229, 229, 229, 1),
                               child: InputField(
@@ -54,7 +53,6 @@ class Paga extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              //Input: "E-Mail"
                               margin: EdgeInsets.only(top: 10, bottom: 5),
                               color: Color.fromRGBO(229, 229, 229, 1),
                               child: InputField(
@@ -63,7 +61,6 @@ class Paga extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              //Botão de recuperar sennha
                               margin: EdgeInsets.symmetric(vertical: 5),
                               child: StreamBuilder<bool>(
                                   builder: (context, snapshot) {
@@ -73,7 +70,26 @@ class Paga extends StatelessWidget {
                                   child: RaisedButton(
                                       color: Colors.blue,
                                       child: Text("Confirmar"),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: const Text("Obrigado"),
+                                              content: Text(
+                                                  "Conta paga com Sucesso"),
+                                              actions: <Widget>[
+                                                ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: const Text("Ok"),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
                                       textColor: Colors.white,
                                       disabledColor: Colors.grey),
                                 );

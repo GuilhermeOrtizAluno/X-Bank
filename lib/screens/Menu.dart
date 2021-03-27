@@ -22,7 +22,7 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Color.fromRGBO(52, 20, 250, 1),
         appBar: AppBar(
           title: Text("BANK X"),
         ),

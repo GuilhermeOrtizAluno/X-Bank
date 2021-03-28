@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widgets/input_field.dart';
-import 'package:get/get.dart';
 
 class RecuperarSenha extends StatefulWidget {
   RecuperarSenha({Key key}) : super(key: key);

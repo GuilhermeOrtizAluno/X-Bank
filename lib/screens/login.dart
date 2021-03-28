@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/user_model.dart';
 import 'package:flutter_application_1/screens/home.dart';
+import 'package:flutter_application_1/screens/recuperar_senha.dart';
 import 'package:flutter_application_1/screens/register.dart';
 import 'package:flutter_application_1/widgets/input_field.dart';
 
@@ -38,7 +39,7 @@ class _LoginScreen extends State<LoginScreen> {
       key: _scaffoldKey,
       body: Form(
         key: _formKey,
-        child: SingleChildScrollView (
+        child: SafeArea (
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -102,8 +103,12 @@ class _LoginScreen extends State<LoginScreen> {
                                   color: Colors.red,
                                 ),
                               ),
-                            )
-                            //onTap: 
+                            ),
+                            onTap: (){
+                              Navigator.push(context, 
+                                MaterialPageRoute(builder: (context) => RecuperarSenha())
+                              );
+                            } 
                           ),
                         ),
                         Container(

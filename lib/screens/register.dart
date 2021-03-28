@@ -8,42 +8,10 @@ class Register extends StatefulWidget {
 }
 
 class _Register extends State<Register> {
-
-/*final _loginBloc = LoginBloc();
-
-  @override
-  void initState() {
-    super.initState();
-
-    _loginBloc.outState.listen((state){
-      switch(state){
-        case LoginState.SUCCESS:
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context)=>HomeScreen())
-          );
-          break;
-        case LoginState.FAIL:
-          showDialog(context: context, builder: (context)=>AlertDialog(
-            title: Text("Erro"),
-            content: Text("Você não possui os privilégios necessários"),
-          ));
-          break;
-        case LoginState.LOADING:
-        case LoginState.IDLE:
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _loginBloc.dispose();
-    super.dispose();
-  }*/
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView (
+      body: SafeArea (
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -85,32 +53,22 @@ class _Register extends State<Register> {
                     InputField(
                       hint: "Nome Completo",
                       obscure: false,
-                      //stream: _loginBloc.outEmail,
-                      //onChanged: _loginBloc.changeEmail,
                     ),
                     InputField(
                       hint: "E-mail",
                       obscure: false,
-                      //stream: _loginBloc.outEmail,
-                      //onChanged: _loginBloc.changeEmail,
                     ),
                     InputField(
                       hint: "Usuário",
                       obscure: false,
-                      //stream: _loginBloc.outEmail,
-                      //onChanged: _loginBloc.changeEmail,
                     ),
                     InputField(
                       hint: "Senha",
                       obscure: true,
-                      //stream: _loginBloc.outPassword,
-                      //onChanged: _loginBloc.changePassword,
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(vertical: 5),
                       child: StreamBuilder<bool>(
-                        
-                        //stream: _loginBloc.outSubmitValid,
                         builder: (context, snapshot) {
                           return SizedBox(
                             height: 50,
@@ -121,7 +79,7 @@ class _Register extends State<Register> {
                               onPressed:  (){ 
                                 Navigator.push(context, 
                                   MaterialPageRoute(builder: (context) => Home())
-                                );//snapshot.hasData ? _loginBloc.submit : null,
+                                );
                               },
                               textColor: Colors.white,
                               disabledColor: Colors.grey

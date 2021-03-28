@@ -5,6 +5,7 @@ import 'package:ba/models/transacao.dart';
 import 'package:ba/input_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../controllers/conta.dart';
 import '../controllers/historico.dart';
 import '../controllers/conta.dart';
@@ -19,32 +20,47 @@ class Saldo extends StatefulWidget {
 
 class _SaldoState extends State<Saldo> {
   var historico;
-  double corrente = 1000.50;
+  var conta;
+  double valorcorrente;
+  double valorpoupanca;
+  double valorc;
+  double valorp;
 
   @override
   void initState() {
     super.initState();
     historico = Historico();
+    conta = Conta();
   }
 
   @override
   Widget build(BuildContext context) {
+    List<Corrente> valorcorrente = conta.contacorrente;
+    List<Poupanca> valorpoupanca = conta.contapoupanca;
+    valorc = valorcorrente[0].valorcorrente;
+    valorp = valorpoupanca[0].valorpoupanca;
+
     return Scaffold(
       backgroundColor: Color.fromRGBO(52, 20, 250, 1),
       appBar: AppBar(
         title: Text("Saldo e Extrato"),
+        bottom: PreferredSize(
+          child: Container(
+            alignment: Alignment.centerLeft,
+            color: Colors.white,
+            constraints: BoxConstraints.expand(height: 50),
+            child: Text(
+              "Saldo Conta Corrente:               Saldo Conta Poupança:\n   RS  $valorc                                           RS  $valorp",
+              style: TextStyle(fontSize: 15),
+            ),
+          ),
+          preferredSize: Size(50, 50),
+        ),
       ),
       body: Container(
         child: Center(
           child: Column(
             children: <Widget>[
-              Container(),
-              Container(
-                child: Text("Saldo Conta Corrente"),
-              ),
-              Container(
-                child: Text("Saldo Conta Poupança"),
-              ),
               Container(
                 width: 500,
                 height: 500,

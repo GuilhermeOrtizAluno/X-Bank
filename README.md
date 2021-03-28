@@ -16,8 +16,8 @@
   * Telas de Transferência e Recuperação de senha
 * Guilherme Ortiz
   * Prototipação
-  * Base do organizacional do projeto
-  * Telas de Cadastro, Usuário e Login
+  * Base e Organização do projeto
+  * Telas de Cadastro, Home e Login
 * Nicholas Damasceno
   * Telas de Saldo/Extrato e Pagar Conta
   * Ideia do app (Aplicativo de Banco)
@@ -39,7 +39,14 @@
 </p>
 
 ------------------------------------------
-## Funcionalidades
-
+## Funcionalidades pretendidas
+- [ ] Banco de dados para guardar dados das contas
+- [ ] Contas de usuários
+- [ ] Leitura de código de barras com câmera
+- [ ] Foto de perfil com a câmera do celular
+- [ ] Transferências de uma conta para outra
 ------------------------------------------
-## Bugs
+## Bugs conhecidos
+* Algumas cores estão fora de acordo com o padrão
+* Algumas telas estão fora de acordo com a formatação padrão
+* Algumas telas apresentam defeitos quando o teclado é acionado

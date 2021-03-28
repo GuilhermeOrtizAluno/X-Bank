@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # flutter_application_1
-=======
-# ba
->>>>>>> origin/Nicholas
 
 A new Flutter project.
 

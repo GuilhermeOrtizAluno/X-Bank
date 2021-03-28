@@ -9,10 +9,10 @@ class Home extends StatefulWidget {
 }
 
 const List<Options> options = const <Options>[
-  const Options(titulo: 'Saldo e Extrato', icon: Icons.attach_money),
+  const Options(titulo: 'Saldo e Extrato', icon: Icons.attach_money, navi: 1),
   const Options(titulo: 'Tranferencia', icon: Icons.autorenew_sharp, navi: 2),
-  const Options(titulo: 'Pagar Conta', icon: Icons.money),
-  const Options(titulo: 'Cartão', icon: Icons.credit_card_outlined),
+  const Options(titulo: 'Pagar Conta', icon: Icons.money, navi: 3),
+  const Options(titulo: 'Cartão', icon: Icons.credit_card_outlined, navi: 4),
 ];
 
 class _HomeState extends State<Home> {

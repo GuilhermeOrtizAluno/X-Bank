@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/pay.dart';
+import 'package:flutter_application_1/screens/saldo_extrato.dart';
 import 'package:flutter_application_1/screens/transferencia.dart';
 
 class Options {
@@ -18,6 +20,18 @@ class Grid_Options extends StatelessWidget {
     void _transfer(){
       Navigator.push(context, 
         MaterialPageRoute(builder: (context) => Transferencia())
+      );
+    }
+
+    void _saldo(){
+      Navigator.push(context, 
+        MaterialPageRoute(builder: (context) => Saldo())
+      );
+    }
+
+    void _pay(){
+      Navigator.push(context, 
+        MaterialPageRoute(builder: (context) => Pay())
       );
     }
 
@@ -46,7 +60,9 @@ class Grid_Options extends StatelessWidget {
           ),
         )
       ),
-      onTap: options.navi == 2 ? _transfer : null
+      onTap: options.navi == 1 ? _saldo : 
+             options.navi == 2 ? _transfer : 
+             options.navi == 3 ? _pay : null
     );
   }
 }

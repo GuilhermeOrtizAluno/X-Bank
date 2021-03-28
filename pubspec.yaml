@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 name: flutter_application_1
-=======
-name: ba
->>>>>>> origin/Nicholas
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -28,20 +24,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-<<<<<<< HEAD
-=======
-  get:
-
->>>>>>> origin/Nicholas
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-<<<<<<< HEAD
   scoped_model: ^1.0.1
   path_provider: ^2.0.1
-=======
->>>>>>> origin/Nicholas
 
 dev_dependencies:
   flutter_test:
@@ -62,11 +50,8 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-<<<<<<< HEAD
   assets:
     - json/
-=======
->>>>>>> origin/Nicholas
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

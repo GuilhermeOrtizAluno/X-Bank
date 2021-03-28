@@ -1,8 +1,7 @@
-import 'package:ba/input_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Teste extends StatelessWidget {
+class Pay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

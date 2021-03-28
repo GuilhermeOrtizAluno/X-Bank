@@ -1,15 +1,11 @@
-import 'package:ba/models/corrente.dart';
-import 'package:ba/models/poupanca.dart';
-import 'package:ba/controllers/historico.dart';
-import 'package:ba/models/transacao.dart';
-import 'package:ba/input_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter_application_1/models/corrente.dart';
+import 'package:flutter_application_1/models/poupanca.dart';
+import 'package:flutter_application_1/models/transacao.dart';
 import '../controllers/conta.dart';
 import '../controllers/historico.dart';
-import '../controllers/conta.dart';
-import '../repositories/conta_repositorio.dart';
+import '../widgets/balance.dart';
 
 class Saldo extends StatefulWidget {
   Saldo({Key key}) : super(key: key);
@@ -44,42 +40,33 @@ class _SaldoState extends State<Saldo> {
       backgroundColor: Color.fromRGBO(52, 20, 250, 1),
       appBar: AppBar(
         title: Text("Saldo e Extrato"),
-        bottom: PreferredSize(
-          child: Container(
-            alignment: Alignment.centerLeft,
-            color: Colors.white,
-            constraints: BoxConstraints.expand(height: 50),
-            child: Text(
-              "Saldo Conta Corrente:               Saldo Conta Poupança:\n   RS  $valorc                                           RS  $valorp",
-              style: TextStyle(fontSize: 15),
-            ),
-          ),
-          preferredSize: Size(50, 50),
-        ),
       ),
       body: Container(
-        child: Center(
-          child: Column(
-            children: <Widget>[
-              Container(
-                width: 500,
-                height: 500,
-                child: ListView.separated(
-                  itemCount: historico.historico.length,
-                  itemBuilder: (BuildContext contexto, int i) {
-                    final List<Transacoes> transacoes = historico.historico;
-                    return ListTile(
-                      tileColor: Colors.white,
-                      leading: Text(transacoes[i].motivo),
-                      trailing: Text(transacoes[i].valor.toString()),
-                    );
-                  },
-                  separatorBuilder: (_, __) => Divider(),
-                  padding: EdgeInsets.all(15),
+        child: Column(
+          children: <Widget>[
+            Balance(),
+            Column(
+              children: <Widget>[
+                Container(
+                  width: 500,
+                  height: 500,
+                  child: ListView.separated(
+                    itemCount: historico.historico.length,
+                    itemBuilder: (BuildContext contexto, int i) {
+                      final List<Transacoes> transacoes = historico.historico;
+                      return ListTile(
+                        tileColor: Colors.white,
+                        leading: Text(transacoes[i].motivo),
+                        trailing: Text(transacoes[i].valor.toString()),
+                      );
+                    },
+                    separatorBuilder: (_, __) => Divider(),
+                    padding: EdgeInsets.all(15),
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ]
         ),
       ),
     );

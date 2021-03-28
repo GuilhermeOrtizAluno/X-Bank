@@ -1,7 +1,7 @@
 import 'dart:collection';
 
-import 'package:ba/models/transacao.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_1/models/transacao.dart';
 
 class Repositorio {
   final List<Transacoes> _transacoes = [];

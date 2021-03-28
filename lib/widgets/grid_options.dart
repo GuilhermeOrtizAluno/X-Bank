@@ -12,7 +12,7 @@ class Grid_Options extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.transparent,
+      color: Color.fromRGBO(52, 20, 250, 1),
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/login.dart';
+import 'package:flutter_application_1/widgets/balance.dart';
 import 'package:flutter_application_1/widgets/grid_options.dart';
 
 class Home extends StatefulWidget {
@@ -19,18 +21,68 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Text('XBank'),
-      ),
-      body: Container( 
-        color: Color.fromRGBO(52, 20, 250, 1),
-        child: GridView.count(
-            crossAxisCount: 2,
-            children: List.generate(options.length, (index) {
-              return Center(
-                child: Grid_Options(options: options[index]),
+        actions: <Widget>[
+          InkWell(
+            child: Container(
+              margin: EdgeInsets.only(right: 20),
+              child: Icon(
+                Icons.exit_to_app,
+                size: 35,
+              ),
+            ),
+            onTap: (){ 
+              Navigator.push(context, 
+                MaterialPageRoute(builder: (context) => LoginScreen())
               );
             }
           )
-        )
+        ],
+      ),
+      body: Container( 
+        color: Colors.blue[200],
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.only(left: 5, right: 20),
+              child: Row(
+                children:<Widget> [
+                  Expanded(
+                    child: Row(
+                      children:<Widget> [
+                        Icon(
+                          Icons.person,
+                          size: 50,
+                        ),
+                        Text(
+                          "Admin",
+                          style: TextStyle(
+                            fontSize: 40
+                          )
+                        )
+                      ]
+                    )
+                  ),
+                  Icon(
+                    Icons.settings,
+                    size: 35,
+                  )
+                ]
+              )
+            ),
+            Balance(),
+            Expanded(
+              child: GridView.count(
+                padding: EdgeInsets.all(20),
+                crossAxisCount: 2,
+                children: List.generate(options.length, (index) {
+                  return Grid_Options(options: options[index]);
+                })
+              )
+            )
+          ],
+        ) 
+        
       )
      );
   }

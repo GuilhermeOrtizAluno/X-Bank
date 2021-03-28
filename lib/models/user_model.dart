@@ -1,73 +1,45 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:flutter_application_1/convert/user.dart';
 
-class UserModel extends Model {
-
-  var users = {
-    "user" : "admin",
-    "senha" : "123" 
-  };
-
-  String user;
-  Map<String, dynamic> userData = new Map();
+class UserModel {
 
   bool isLoading = false;
+  var users;
 
-  static UserModel of(BuildContext context) =>
-      ScopedModel.of<UserModel>(context);
-
-  void signIn({@required String email, @required String pass,
+  void signIn({@required String username, @required String pass,
       @required VoidCallback onSuccess, @required VoidCallback onFail}) async {
 
     isLoading = true;
-    notifyListeners();
 
-    _auth.
-    signInWithEmailAndPassword(email: email, password: pass).then(
-      (user) async {
-        firebaseUser = user;
-
-        await _loadCurrentUser();
-
-        onSuccess();
-        isLoading = false;
-        notifyListeners();
-
-    }).catchError((e){
-      onFail();
-      isLoading = false;
-      notifyListeners();
-    });
-
+    String jsonString = await _loadCurrentUser();
+    final jsonResponse = json.decode(jsonString);
+    users = new User.fromJson(jsonResponse);
+    if(users.user == username && users.password == pass)
+      onSuccess();
+    else onFail();
+    isLoading = false;
+    
   }
 
   void signOut() async {
-    await _auth.signOut();
+    //await _auth.signOut();
 
-    userData = Map();
-    user = null;
+    // users = null;
+    // user = null;
 
-    notifyListeners();
+    
   }
 
   bool isLoggedIn(){
-    return user != null;
+    //return user != null;
   }
 
-  Future<Null> _loadCurrentUser() async {
-    if(firebaseUser == null)
-      firebaseUser = await _auth.currentUser();
-    if(firebaseUser != null){
-      if(userData["name"] == null){
-        DocumentSnapshot docUser =
-          await Firestore.instance.collection("users").document(firebaseUser.uid).get();
-        userData = docUser.data;
-      }
-    }
-    notifyListeners();
+  Future<String> _loadCurrentUser() async { 
+    
+    return await rootBundle.loadString('json/user.json');
   }
 
 

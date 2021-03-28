@@ -1,103 +1,108 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/input_field.dart';
+
+import 'home.dart';
 
 class Pay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
       appBar: AppBar(
-        title: Text("Pagar"),
+        backgroundColor: Color.fromRGBO(52, 20, 250, 1),
+        foregroundColor: Color.fromRGBO(52, 20, 250, 1),
+        elevation: 0,
       ),
-      body: Container(
-        margin: EdgeInsets.symmetric(horizontal: 24),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                color: Colors.white,
+      body: Scaffold(
+          body: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              color: Color.fromRGBO(52, 20, 250, 1),
+              child: Center(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    TextField(
-                      cursorColor: Colors.white,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Digite o Codigo de Barras',
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "X-Bank",
+                        style: TextStyle(fontSize: 60),
                       ),
-                      onSubmitted: (String value) async {
-                        await showDialog<void>(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Text('Digite sua Senha'),
-                              content: TextField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Digite sua Senha',
-                                ),
-                                onSubmitted: (String value) async {
-                                  await showDialog<void>(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AlertDialog(
-                                        title: const Text("Obrigado"),
-                                        content: Text("Conta paga com Sucesso"),
-                                        actions: <Widget>[
-                                          ElevatedButton(
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: const Text("Ok"),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                },
+                      SizedBox(height: 30),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 24),
+                        decoration: BoxDecoration(
+                          //quadrado branco
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(18.0),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 4.0,
+                                offset: Offset(0.0, 0.75))
+                          ],
+                        ),
+                        padding: EdgeInsets.all(5.0),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(top: 10, bottom: 5),
+                              color: Color.fromRGBO(229, 229, 229, 1),
+                              child: InputField(
+                                hint: "Codigo de Barras",
+                                obscure: false,
                               ),
-                              actions: <Widget>[
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text('Confirmar'),
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text('Sair'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                child: StreamBuilder<bool>(builder: (context, snapshot) {
-                  return SizedBox(
-                    height: 50,
-                    width: 100,
-                    child: RaisedButton(
-                        color: Colors.pinkAccent,
-                        child: Text("Confirmar"),
-                        onPressed: () {},
-                        textColor: Colors.white,
-                        disabledColor: Colors.grey),
-                  );
-                }),
-              ),
-            ],
-          ),
-        ),
-      ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10, bottom: 5),
+                              color: Color.fromRGBO(229, 229, 229, 1),
+                              child: InputField(
+                                hint: "Senha",
+                                obscure: true,
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(vertical: 5),
+                              child: StreamBuilder<bool>(
+                                  builder: (context, snapshot) {
+                                return SizedBox(
+                                  height: 50,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: RaisedButton(
+                                      color: Colors.blue,
+                                      child: Text("Confirmar"),
+                                      onPressed: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: const Text("Obrigado"),
+                                              content: Text(
+                                                  "Conta paga com Sucesso"),
+                                              actions: <Widget>[
+                                                ElevatedButton(
+                                                  onPressed: () {
+                                                    Navigator.pushReplacement(context, 
+                                                      MaterialPageRoute(builder: (context) => Home())
+                                                    );
+                                                  },
+                                                  child: const Text("Ok"),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                      textColor: Colors.white,
+                                      disabledColor: Colors.grey),
+                                );
+                              }),
+                            ),
+                          ],
+                        ),
+                      )
+                    ]),
+              ))),
     );
   }
 }

@@ -1,6 +1,9 @@
-import 'package:ba/widgets/input_field.dart';
+import 'package:ba/input_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'Menu.dart';
 
 class Paga extends StatelessWidget {
   @override
@@ -41,7 +44,7 @@ class Paga extends StatelessWidget {
                                 offset: Offset(0.0, 0.75))
                           ],
                         ),
-                        padding: EdgeInsets.all(1.0),
+                        padding: EdgeInsets.all(5.0),
                         child: Column(
                           children: <Widget>[
                             Container(
@@ -81,7 +84,7 @@ class Paga extends StatelessWidget {
                                               actions: <Widget>[
                                                 ElevatedButton(
                                                   onPressed: () {
-                                                    Navigator.pop(context);
+                                                    Get.to(() => Menu());
                                                   },
                                                   child: const Text("Ok"),
                                                 ),

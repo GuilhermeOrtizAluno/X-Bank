@@ -1,10 +1,8 @@
-import 'dart:html';
-
 import 'package:ba/models/corrente.dart';
 import 'package:ba/models/poupanca.dart';
 import 'package:ba/controllers/historico.dart';
 import 'package:ba/models/transacao.dart';
-import 'package:ba/widgets/input_field.dart';
+import 'package:ba/input_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../controllers/conta.dart';
@@ -40,9 +38,7 @@ class _SaldoState extends State<Saldo> {
         child: Center(
           child: Column(
             children: <Widget>[
-              Container(
-                child: Text("Saldo Conta Corrente", textScaleFactor: corrente),
-              ),
+              Container(),
               Container(
                 child: Text("Saldo Conta Corrente"),
               ),

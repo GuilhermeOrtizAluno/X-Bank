@@ -28,6 +28,7 @@
  3. Esperar o VScode sincronizar as dependências básicas
  4. Executar o APP
 ------------------------------------------
+
 ## [Protótipo](https://www.figma.com/proto/elTfI7vWYgxKfAPPkeJqSp/X-Bank(Dispositivos-Moveis)?node-id=1%3A2&scaling=scale-down&page-id=0%3A1)
 
 <p align="center">

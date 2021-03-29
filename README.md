@@ -44,6 +44,7 @@
   <img src="https://i.imgur.com/L5HhzlT.png" width="200">
   <img src="https://i.imgur.com/WsQroez.png" width="200">
 </p>
+
 ------------------------------------------
 ## Funcionalidades pretendidas
 - [ ] Banco de dados para guardar dados das contas
@@ -51,6 +52,7 @@
 - [ ] Leitura de código de barras com câmera
 - [ ] Foto de perfil com a câmera do celular
 - [ ] Transferências de uma conta para outra
+
 ------------------------------------------
 ## Bugs conhecidos
 * Algumas cores estão fora de acordo com o padrão

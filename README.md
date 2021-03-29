@@ -25,8 +25,9 @@
 ## Instalação
  1. Clonar o repositório
  2. Abrir a pasta no VScode
- 3. Esperar o VScode sincronizar as dependências básicas
- 4. Executar o APP
+ 3. Abrir e Salvar o arquivo pubspec.yaml (sem alterações) para que a IDE sincronize localmente os arquivos ignorados pelo gitignore
+ 4. Esperar o VScode sincronizar as dependências básicas
+ 5. Executar o APP
 ------------------------------------------
 
 ## [Protótipo](https://www.figma.com/proto/elTfI7vWYgxKfAPPkeJqSp/X-Bank(Dispositivos-Moveis)?node-id=1%3A2&scaling=scale-down&page-id=0%3A1)

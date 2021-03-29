@@ -21,7 +21,12 @@
 * Nicholas Damasceno
   * Telas de Saldo/Extrato e Pagar Conta
   * Ideia do app (Aplicativo de Banco)
-
+------------------------------------------
+## Instalação
+ 1. Clonar o repositório
+ 2. Abrir a pasta no VScode
+ 3. Esperar o VScode sincronizar as dependências básicas
+ 4. Executar o APP
 ------------------------------------------
 ## [Protótipo](https://www.figma.com/proto/elTfI7vWYgxKfAPPkeJqSp/X-Bank(Dispositivos-Moveis)?node-id=1%3A2&scaling=scale-down&page-id=0%3A1)
 
@@ -37,7 +42,6 @@
   <img src="https://i.imgur.com/L5HhzlT.png" width="200">
   <img src="https://i.imgur.com/WsQroez.png" width="200">
 </p>
-
 ------------------------------------------
 ## Funcionalidades pretendidas
 - [ ] Banco de dados para guardar dados das contas

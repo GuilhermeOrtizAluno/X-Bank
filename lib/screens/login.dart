@@ -4,6 +4,7 @@ import 'package:flutter_application_1/screens/home.dart';
 import 'package:flutter_application_1/screens/recuperar_senha.dart';
 import 'package:flutter_application_1/screens/register.dart';
 import 'package:flutter_application_1/widgets/input_field.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -18,18 +19,19 @@ class _LoginScreen extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-   void _onSuccess(){
-    Navigator.pushReplacement(context, 
-      MaterialPageRoute(builder: (context) => Home())
-    );
+  void _onSuccess(){
+     Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context)=>Home())
+      );
+    //Get.to(Home());
   }
 
   void _onFail(){
     _scaffoldKey.currentState.showSnackBar(
-        SnackBar(content: Text("Usuario/senha incorreto!"),
-          backgroundColor: Colors.redAccent,
-          duration: Duration(seconds: 2),
-        )
+      SnackBar(content: Text("Usuario/senha incorreto!"),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 2),
+      )
     );
   }
 
@@ -43,7 +45,7 @@ class _LoginScreen extends State<LoginScreen> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            color: Color.fromRGBO(52, 20, 250, 1),
+            color: Theme.of(context).accentColor,
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,11 +55,7 @@ class _LoginScreen extends State<LoginScreen> {
                     margin: EdgeInsets.only(bottom: 20),  
                     child: Text(
                       'X-BANK', 
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35
-                      )
+                      style: Theme.of(context).textTheme.headline1
                     ),
                   ),
                   Container(
@@ -69,9 +67,9 @@ class _LoginScreen extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(18.0),
                       boxShadow: <BoxShadow>[
                         BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 5.0,
-                            offset: Offset(0.0, 0.75)
+                            color: Colors.black,
+                            blurRadius: 7.0,
+                            offset: Offset(0, 0)
                         )
                       ],
                     ),
@@ -105,14 +103,15 @@ class _LoginScreen extends State<LoginScreen> {
                               ),
                             ),
                             onTap: (){
-                              Navigator.push(context, 
-                                MaterialPageRoute(builder: (context) => RecuperarSenha())
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context)=>RecuperarSenha())
                               );
+                              //Get.to(RecuperarSenha());
                             } 
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: 5),
+                          margin: EdgeInsets.symmetric(vertical: 10),
                           child:  SizedBox(
                             height: 50,
                             width: MediaQuery.of(context).size.width,
@@ -141,9 +140,10 @@ class _LoginScreen extends State<LoginScreen> {
                               ),
                             ),
                             onTap: (){ 
-                              Navigator.push(context, 
-                                MaterialPageRoute(builder: (context) => Register())
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context)=>Register())
                               );
+                              //Get.to(Register());
                             }
                           )
                         )

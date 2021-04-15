@@ -21,13 +21,14 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('XBank'),
+        title: Text('X-BANK'),
+        elevation: 0,
         actions: <Widget>[
           InkWell(
             child: Container(
               margin: EdgeInsets.only(right: 20),
               child: Icon(
-                Icons.exit_to_app,
+                Icons.settings,
                 size: 35,
               ),
             ),
@@ -40,33 +41,22 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: Container( 
-        color: Colors.blue[200],
+        color: Colors.white,
         child: Column(
           children: <Widget>[
             Container(
-              margin: EdgeInsets.symmetric(vertical: 10),
-              padding: EdgeInsets.only(left: 5, right: 20),
-              child: Row(
+              padding: EdgeInsets.only(left: 5, right: 20, bottom: 10),
+              color: Theme.of(context).accentColor,
+              child:  Row(
                 children:<Widget> [
-                  Expanded(
-                    child: Row(
-                      children:<Widget> [
-                        Icon(
-                          Icons.person,
-                          size: 50,
-                        ),
-                        Text(
-                          "Admin",
-                          style: TextStyle(
-                            fontSize: 40
-                          )
-                        )
-                      ]
-                    )
-                  ),
                   Icon(
-                    Icons.settings,
-                    size: 35,
+                    Icons.person,
+                    size: 50,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    "Admin",
+                    style: Theme.of(context).textTheme.headline1,
                   )
                 ]
               )
@@ -83,7 +73,6 @@ class _HomeState extends State<Home> {
             )
           ],
         ) 
-        
       )
      );
   }

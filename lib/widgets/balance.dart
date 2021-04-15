@@ -10,29 +10,37 @@ class _BalanceState extends State<Balance> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      padding: EdgeInsets.only(left: 15, right: 20),
+      padding: EdgeInsets.only(left: 15, right: 20, top: 15, bottom: 15),
+      color: Theme.of(context).accentColor,
       width: MediaQuery.of(context).size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:<Widget> [
           Column(
             children: <Widget>[
-              Text("Saldo Conta Corrente"),
+              Text(
+                "Saldo Conta Corrente",
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
               Row(
                 children: <Widget>[
                   Text(
                     current ?  "180,00 R\$" : "****" ,
+                    style: Theme.of(context).textTheme.bodyText1,
                   ),
-                  InkWell(
-                    child: Icon(
-                      !current ? Icons.remove_red_eye : Icons.remove_red_eye_outlined
+                  Padding(
+                    padding: EdgeInsets.only(left: 20),
+                    child: InkWell(
+                      child: Icon(
+                        !current ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,
+                        color: Colors.white,
+                      ),
+                      onTap: (){
+                        setState(() {
+                          current = current ? false : true;
+                        });
+                      },
                     ),
-                    onTap: (){
-                      setState(() {
-                        current = current ? false : true;
-                      });
-                    },
                   )
                 ],
               )
@@ -40,21 +48,29 @@ class _BalanceState extends State<Balance> {
           ),
           Column(
             children: <Widget>[
-              Text("Saldo Poupança"),
+              Text(
+                "Saldo Poupança",
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
               Row(
                 children: <Widget>[
-                  InkWell(
-                    child: Icon(
-                      !savings ? Icons.remove_red_eye : Icons.remove_red_eye_outlined 
-                    ),
-                    onTap: (){
-                      setState(() {
-                        savings = savings ? false : true;
-                      });
-                    },
+                  Padding(
+                    padding: EdgeInsets.only(right: 20),
+                    child: InkWell(
+                      child: Icon(
+                        !savings ? Icons.remove_red_eye : Icons.remove_red_eye_outlined,
+                        color: Colors.white
+                      ),
+                      onTap: (){
+                        setState(() {
+                          savings = savings ? false : true;
+                        });
+                      },
+                    ), 
                   ),
                   Text(
-                    savings ?  "1080,00 R\$" : "****" 
+                    savings ?  "1080,00 R\$" : "****",
+                    style: Theme.of(context).textTheme.bodyText1,
                   )
                 ],
               )

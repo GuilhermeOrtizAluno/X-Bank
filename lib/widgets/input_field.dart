@@ -14,7 +14,7 @@ class InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 5),
-      color: Color.fromRGBO(229, 229, 229, 1), 
+      //color: Color.fromRGBO(229, 229, 229, 1), 
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(

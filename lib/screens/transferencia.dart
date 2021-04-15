@@ -14,16 +14,17 @@ class _TransferenciaState extends State<Transferencia> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Transferência"),
-        backgroundColor: Color.fromRGBO(52, 20, 250, 1),
-        foregroundColor: Color.fromRGBO(52, 20, 250, 1),
+        title: Align(
+          alignment: Alignment.centerRight,
+          child: Text("Transferência")
+        ),
         elevation: 0,
       ),
       body: SafeArea(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: Color.fromRGBO(52, 20, 250, 1),
+          color: Theme.of(context).accentColor,
           child:  Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -79,12 +80,10 @@ class _TransferenciaState extends State<Transferencia> {
                           return SizedBox(
                             height: 50,
                             width: MediaQuery.of(context).size.width,
-                            child: RaisedButton(
-                                color: Colors.pinkAccent,
-                                child: Text("Enviar"),
-                                onPressed: () {},
-                                textColor: Colors.white,
-                                disabledColor: Colors.grey),
+                            child: ElevatedButton(
+                              child: Text("Enviar"),
+                              onPressed: () {},
+                            ),
                           );
                         }),
                       ),

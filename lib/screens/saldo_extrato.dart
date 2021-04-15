@@ -37,9 +37,12 @@ class _SaldoState extends State<Saldo> {
     valorp = valorpoupanca[0].valorpoupanca;
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(52, 20, 250, 1),
       appBar: AppBar(
-        title: Text("Saldo e Extrato"),
+        title: Align(
+          alignment: Alignment.centerRight,
+          child: Text("Saldo e Extrato"),
+        ),
+        elevation: 0,
       ),
       body: Container(
         child: Column(

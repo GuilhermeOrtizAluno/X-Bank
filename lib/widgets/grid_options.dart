@@ -38,25 +38,28 @@ class Grid_Options extends StatelessWidget {
     return InkWell(
       child: Card(
         color: Color.fromRGBO(52, 20, 250, 1),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                options.icon, 
-                size:80.0, 
-                color: Colors.black
-              ),
-              Text(
-                options.titulo, 
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 25,
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  options.icon, 
+                  size:80.0, 
+                  color: Colors.white
                 ),
-                textAlign: TextAlign.center,
-              ),
-            ]
+                Text(
+                  options.titulo, 
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ]
+            ),
           ),
         )
       ),

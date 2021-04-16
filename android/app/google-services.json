@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855745194898",
+    "project_id": "xbank-48fc2",
+    "storage_bucket": "xbank-48fc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855745194898:android:c2bbeaccf834e23ac3ef4b",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855745194898-dc0oiqn5idf6duvkbvqr3me1ii7ivdou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBih2U9mfp0gsySw7vlnDzM3yR_D_21qXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855745194898-dc0oiqn5idf6duvkbvqr3me1ii7ivdou.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

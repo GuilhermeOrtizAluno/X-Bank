@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/login.dart';
 import 'package:flutter_application_1/widgets/balance.dart';
 import 'package:flutter_application_1/widgets/grid_options.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'package:flutter_application_1/models/user_model.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -24,17 +26,22 @@ class _HomeState extends State<Home> {
         title: Text('X-BANK'),
         elevation: 0,
         actions: <Widget>[
-          InkWell(
-            child: Container(
-              margin: EdgeInsets.only(right: 20),
-              child: Icon(
-                Icons.settings,
-                size: 35,
-              ),
-            ),
-            onTap: (){ 
-              Navigator.push(context, 
-                MaterialPageRoute(builder: (context) => LoginScreen())
+          ScopedModelDescendant<UserModel>(
+            builder: (context, child, model){
+              return  InkWell(
+                child: Container(
+                  margin: EdgeInsets.only(right: 20),
+                  child: Icon(
+                    Icons.settings,
+                    size: 35,
+                  ),
+                ),
+                onTap: (){ 
+                  model.signOut();
+                  Navigator.pushReplacement(context, 
+                    MaterialPageRoute(builder: (context) => LoginScreen())
+                  );
+                }
               );
             }
           )
@@ -44,31 +51,40 @@ class _HomeState extends State<Home> {
         color: Colors.white,
         child: Column(
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(left: 5, right: 20, bottom: 10),
-              color: Theme.of(context).accentColor,
-              child:  Row(
-                children:<Widget> [
-                  Icon(
-                    Icons.person,
-                    size: 50,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    "Admin",
-                    style: Theme.of(context).textTheme.headline1,
-                  )
-                ]
-              )
+            Flexible(
+              child: Container(
+                padding: EdgeInsets.only(left: 5, right: 20, bottom: 10),
+                color: Theme.of(context).accentColor,
+                child:  Row(
+                  children:<Widget> [
+                    Icon(
+                      Icons.person,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    ScopedModelDescendant<UserModel>(
+                      builder: (context, child, model){
+                        return Text(
+                          "${model.userData["name"]}",
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.headline1,
+                        );
+                      }
+                    )
+                  ]
+                )
+              ),
             ),
             Balance(),
             Expanded(
-              child: GridView.count(
-                padding: EdgeInsets.all(20),
-                crossAxisCount: 2,
-                children: List.generate(options.length, (index) {
-                  return Grid_Options(options: options[index]);
-                })
+              child: Center(
+                child: GridView.count(
+                  padding: EdgeInsets.all(20),
+                  crossAxisCount: 2,
+                  children: List.generate(options.length, (index) {
+                    return Grid_Options(options: options[index]);
+                  })
+                ),
               )
             )
           ],

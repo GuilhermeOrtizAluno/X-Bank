@@ -11,8 +11,11 @@ class _BalanceState extends State<Balance> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 15, right: 20, top: 15, bottom: 15),
-      color: Theme.of(context).accentColor,
       width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(25)), 
+        color: Theme.of(context).accentColor,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:<Widget> [

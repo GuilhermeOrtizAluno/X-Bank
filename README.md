@@ -5,6 +5,8 @@
   * Aluno de IC com foco em Redes Neurais.
 * **Nicholas Damasceno Pinto**
   * Aluno de Ciência da Computação na UTFPR.
+  * Aluno de IC com foco em Redes Neurais.
+  * Ex Aluno de IC com foco em Reconhecimento de imagens.
 * **Guilherme Ortiz**
   * Aluno de Ciência da Computação na UTFPR.
   * Estagiário da Scheffer Logística e Automação.

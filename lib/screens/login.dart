@@ -20,23 +20,7 @@ class _LoginScreen extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-    final _loginBloc = LoginBloc();
-
-  void _onSuccess(){
-     Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context)=>Home())
-      );
-    //Get.to(Home());
-  }
-
-  void _onFail(){
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Usuario/senha incorreta!"),
-        backgroundColor: Colors.redAccent,
-        duration: Duration(seconds: 2),
-      )
-    );
-  }
+  final _loginBloc = LoginBloc();
 
   @override
   Widget build(BuildContext context) {
@@ -173,6 +157,24 @@ class _LoginScreen extends State<LoginScreen> {
             )
           );
         }
+      )
+    );
+  }
+
+  void _onSuccess(){
+    Future.delayed(Duration(seconds: 2)).then((_) => 
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context)=>Home())
+      )
+    );
+    //Get.to(Home());
+  }
+
+  void _onFail(){
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Usuario/senha incorreta!"),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 2),
       )
     );
   }

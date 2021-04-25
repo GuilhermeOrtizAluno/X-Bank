@@ -37,7 +37,7 @@ class Grid_Options extends StatelessWidget {
 
     return InkWell(
       child: Card(
-        color: Color.fromRGBO(52, 20, 250, 1),
+        color: Theme.of(context).accentColor,
         child: Padding(
           padding: EdgeInsets.all(10),
           child: Center(

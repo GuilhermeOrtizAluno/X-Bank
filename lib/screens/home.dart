@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
                 child: Container(
                   margin: EdgeInsets.only(right: 20),
                   child: Icon(
-                    Icons.settings,
+                    Icons.exit_to_app,
                     size: 35,
                   ),
                 ),
@@ -47,48 +47,45 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: Container( 
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[
-            Flexible(
-              child: Container(
-                padding: EdgeInsets.only(left: 5, right: 20, bottom: 10),
-                color: Theme.of(context).accentColor,
-                child:  Row(
-                  children:<Widget> [
-                    Icon(
-                      Icons.person,
-                      size: 50,
-                      color: Colors.white,
-                    ),
-                    ScopedModelDescendant<UserModel>(
-                      builder: (context, child, model){
-                        return Text(
-                          "${model.userData["name"]}",
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.headline1,
-                        );
-                      }
-                    )
-                  ]
-                )
-              ),
-            ),
-            Balance(),
-            Expanded(
-              child: Center(
-                child: GridView.count(
-                  padding: EdgeInsets.all(20),
-                  crossAxisCount: 2,
-                  children: List.generate(options.length, (index) {
-                    return Grid_Options(options: options[index]);
-                  })
+      body: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(left: 5, right: 20, bottom: 10),
+            color: Theme.of(context).accentColor,
+            child:  Row(
+              children:<Widget> [
+                Icon(
+                  Icons.person,
+                  size: 50,
+                  color: Colors.white,
                 ),
-              )
+                ScopedModelDescendant<UserModel>(
+                  builder: (context, child, model){
+                    return Flexible(
+                      child: Text(
+                        "${model.userData["name"]}",
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                    );
+                  }
+                )
+              ]
             )
-          ],
-        ) 
+          ),
+          Balance(),
+          Expanded(
+            child: Center(
+              child: GridView.count(
+                padding: EdgeInsets.all(20),
+                crossAxisCount: 2,
+                children: List.generate(options.length, (index) {
+                  return Grid_Options(options: options[index]);
+                })
+              ),
+            )
+          )
+        ],
       )
      );
   }

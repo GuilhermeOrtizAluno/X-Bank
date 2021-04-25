@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/blocks/register_bloc.dart';
 import 'package:flutter_application_1/models/user_model.dart';
@@ -19,6 +21,8 @@ class _Register extends State<Register> {
   final _formKey = GlobalKey<FormState>();
 
   final _registerBloc = RegisterBloc();
+
+  var random = new Random();
 
   @override
   Widget build(BuildContext context) {
@@ -114,7 +118,9 @@ class _Register extends State<Register> {
                                         onPressed: snapshot.hasData ? (){
                                           Map<String, dynamic> userData = {
                                             "name": _nameController.text,
-                                            "email": _emailController.text
+                                            "email": _emailController.text,
+                                            "currentBalance": random.nextInt(1000000), 
+                                            "savingsBalance": random.nextInt(1000000)
                                           };
                                           model.signUp(
                                             userData: userData, 
@@ -146,7 +152,7 @@ class _Register extends State<Register> {
    void _onSuccess(){
      ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text("Usuario criado com sucesso"),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.greenAccent,
         duration: Duration(seconds: 2),
       )
     );

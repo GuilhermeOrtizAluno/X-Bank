@@ -13,8 +13,8 @@ class Program extends StatelessWidget {
       child:  MaterialApp(
         title: 'X-BANK',
         theme: ThemeData(
-          primaryColor: Color.fromRGBO(52, 20, 250, 1),
-          accentColor: Color.fromRGBO(52, 20, 250, 1),
+          primaryColor: Color.fromRGBO(0, 80, 255, 1),
+          accentColor:  Color.fromRGBO(0, 80, 255, 1),
           buttonColor: Color.fromRGBO(20, 126, 250, 1),
           textTheme: TextTheme(
             headline1: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.white), // titulo

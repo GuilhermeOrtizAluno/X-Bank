@@ -57,12 +57,6 @@ class _SaldoState extends State<Saldo> {
                   itemCount: historico.historico.length,
                   itemBuilder: (BuildContext contexto, int i) {
                     final List<Transacoes> transacoes = historico.historico;
-                    conteudo = transacoes[i].valor.toString();
-                    conteudo = conteudo + transacoes[i].tipo;
-                    conteudo = conteudo + transacoes[i].pessoa;
-                    conteudo = conteudo + transacoes[i].conta1;
-                    conteudo = conteudo + transacoes[i].conta2;
-
                     return ListTile(
                         tileColor: Color.fromRGBO(0, 80, 255, 1),
                         leading: Text(
@@ -70,7 +64,7 @@ class _SaldoState extends State<Saldo> {
                           style: TextStyle(color: Colors.white),
                         ),
                         trailing: Text(
-                          transacoes[i].valor.toString(),
+                          transacoes[i].valor,
                           style: TextStyle(color: Colors.white),
                         ),
                         onTap: () {
@@ -83,9 +77,51 @@ class _SaldoState extends State<Saldo> {
                                   transacoes[i].motivo,
                                   style: TextStyle(color: Colors.white),
                                 ),
-                                content: Text(
-                                  conteudo,
-                                  style: TextStyle(color: Colors.white),
+                                content: SingleChildScrollView(
+                                  child: ListBody(
+                                    children: <Widget>[
+                                      Text(
+                                        "Valor: ",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        transacoes[i].valor,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        "\nTipo de transação: ",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        transacoes[i].tipo,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        "\nPessoa : ",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        transacoes[i].pessoa,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        "\nTipo da sua conta: ",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        transacoes[i].conta1,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        "\nTipo da conta transferida: ",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      Text(
+                                        transacoes[i].conta2,
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 actions: <Widget>[
                                   ElevatedButton(

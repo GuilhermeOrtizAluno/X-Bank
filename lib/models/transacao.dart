@@ -1,6 +1,6 @@
 class Transacoes {
   String motivo;
-  double valor;
+  String valor;
   String tipo;
   String pessoa;
   String conta1;

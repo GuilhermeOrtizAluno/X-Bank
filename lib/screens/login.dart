@@ -18,142 +18,144 @@ class _LoginScreen extends State<LoginScreen> {
   final _passController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final _loginBloc = LoginBloc();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       body: ScopedModelDescendant<UserModel>(
         builder: (context, child, model){
           if(model.isLoading)
-            return Center(child: CircularProgressIndicator());
-          return Form(
+            return Center(child: CircularProgressIndicator());  
+          return Form (
             key: _formKey,
-            child: SafeArea (
+            child: SafeArea(
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 color: Theme.of(context).accentColor,
                 child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:<Widget> [
-                      Container(
-                        margin: EdgeInsets.only(bottom: 20),  
-                        child: Text(
-                          'X-BANK', 
-                          style: Theme.of(context).textTheme.headline1
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children:<Widget> [
+                        Container(
+                          margin: EdgeInsets.only(bottom: 20),  
+                          child: Text(
+                            'X-BANK', 
+                            style: Theme.of(context).textTheme.headline1
+                          ),
                         ),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        constraints: BoxConstraints(maxWidth: 300),
-                        margin: EdgeInsets.symmetric(horizontal: 40),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(18.0),
-                          boxShadow: <BoxShadow>[
-                            BoxShadow(
-                                color: Colors.black,
-                                blurRadius: 7.0,
-                                offset: Offset(0, 0)
-                            )
-                          ],
-                        ),
-                        padding: EdgeInsets.all(16.0),
-                        child: Column(
-                          children:<Widget> [
-                            InputField(
-                              icon: Icons.person_outline,
-                              hint: "E-mail",
-                              obscure: false,
-                              controller: _userController,
-                              keyboardType: TextInputType.emailAddress,
-                              stream: _loginBloc.outEmail,
-                              onChanged: _loginBloc.changeEmail,
-                            ),
-                            InputField(
-                              icon: Icons.lock_outline,
-                              hint: "Senha",
-                              obscure: true,
-                              controller: _passController,
-                              stream: _loginBloc.outPassword,
-                              onChanged: _loginBloc.changePassword,
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(vertical: 5),
-                              child: InkWell(
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text(
-                                    'Esqueceu a Senha?',
-                                    style: TextStyle(
-                                      color: Colors.red,
-                                    ),
-                                  ),
-                                ),
-                                onTap: (){
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context)=>RecuperarSenha())
-                                  );
-                                  //Get.to(RecuperarSenha());
-                                } 
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          constraints: BoxConstraints(maxWidth: 300),
+                          margin: EdgeInsets.symmetric(horizontal: 40),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(18.0),
+                            boxShadow: <BoxShadow>[
+                              BoxShadow(
+                                  color: Colors.black,
+                                  blurRadius: 7.0,
+                                  offset: Offset(0, 0)
+                              )
+                            ],
+                          ),
+                          padding: EdgeInsets.all(16.0),
+                          child: Column(
+                            children:<Widget> [
+                              InputField(
+                                icon: Icons.person_outline,
+                                hint: "E-mail",
+                                obscure: false,
+                                controller: _userController,
+                                keyboardType: TextInputType.emailAddress,
+                                stream: _loginBloc.outEmail,
+                                onChanged: _loginBloc.changeEmail,
                               ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(vertical: 10),
-                              child: StreamBuilder<bool>(
-                                stream: _loginBloc.outSubmitValid,
-                                builder: (context, snapshot) {
-                                  return  SizedBox(
-                                    height: 50,
-                                    width: MediaQuery.of(context).size.width,
-                                    child: ElevatedButton(
-                                      child: Text("Entrar"),
-                                      onPressed: snapshot.hasData ? (){ 
-                                        UserModel().signIn(
-                                          email: _userController.text,
-                                          pass: _passController.text, 
-                                          onSuccess: _onSuccess, 
-                                          onFail: _onFail
-                                        );
-                                      } : null
-                                    ),
-                                  );
-                                }
-                              )
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 5),
-                              child: InkWell(
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text(
-                                    'Cadastrar-se',
-                                    style: TextStyle(
-                                      color: Colors.black,
+                              InputField(
+                                icon: Icons.lock_outline,
+                                hint: "Senha",
+                                obscure: true,
+                                controller: _passController,
+                                stream: _loginBloc.outPassword,
+                                onChanged: _loginBloc.changePassword,
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(vertical: 5),
+                                child: InkWell(
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      'Esqueceu a Senha?',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                      ),
                                     ),
                                   ),
+                                  onTap: (){
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context)=>RecuperarSenha())
+                                    );
+                                    //Get.to(RecuperarSenha());
+                                  } 
                                 ),
-                                onTap: (){ 
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context)=>Register())
-                                  );
-                                  //Get.to(Register());
-                                }
+                              ),
+                              Container(
+                                margin: EdgeInsets.symmetric(vertical: 10),
+                                child: StreamBuilder<bool>(
+                                  stream: _loginBloc.outSubmitValid,
+                                  builder: (context, snapshot) {
+                                    return  SizedBox(
+                                      height: 50,
+                                      width: MediaQuery.of(context).size.width,
+                                      child: ElevatedButton(
+                                        child: Text("Entrar"),
+                                        onPressed: snapshot.hasData ? (){ 
+                                          UserModel().signIn(
+                                            email: _userController.text,
+                                            pass: _passController.text, 
+                                            onSuccess: _onSuccess, 
+                                            onFail: _onFail
+                                          );
+                                        } : null
+                                      ),
+                                    );
+                                  }
+                                )
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(top: 5),
+                                child: InkWell(
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      'Cadastrar-se',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                  onTap: (){ 
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context)=>Register())
+                                    );
+                                    //Get.to(Register());
+                                  }
+                                )
                               )
-                            )
-                          ]
+                            ]
+                          )
                         )
-                      )
-                    ]
-                  )
+                      ]
+                    ),
+                  ),
                 )
-              )
+              ),
             )
           );
         }

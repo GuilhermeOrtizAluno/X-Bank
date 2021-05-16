@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/email.dart';
 import 'package:flutter_application_1/screens/pay.dart';
+import 'package:flutter_application_1/screens/pix.dart';
 import 'package:flutter_application_1/screens/saldo_extrato.dart';
-import 'package:flutter_application_1/screens/transferencia.dart';
+import 'package:flutter_application_1/screens/transfer.dart';
 
 class Options {
   const Options({this.titulo, this.icon, this.navi});
@@ -35,6 +37,18 @@ class Grid_Options extends StatelessWidget {
       );
     }
 
+    void _pix(){
+      Navigator.push(context, 
+        MaterialPageRoute(builder: (context) => Pix())
+      );
+    }
+
+    void _email(){
+      Navigator.push(context, 
+        MaterialPageRoute(builder: (context) => EmailSender())
+      );
+    }
+
     return InkWell(
       child: Card(
         color: Theme.of(context).accentColor,
@@ -65,7 +79,9 @@ class Grid_Options extends StatelessWidget {
       ),
       onTap: options.navi == 1 ? _saldo : 
              options.navi == 2 ? _transfer : 
-             options.navi == 3 ? _pay : null
+             options.navi == 3 ? _pay : 
+             options.navi == 4 ? _pix : 
+             options.navi == 5 ? _email : null
     );
   }
 }

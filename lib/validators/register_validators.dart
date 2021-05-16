@@ -32,4 +32,14 @@ class RegisterValidators {
     }
   );
 
+  final validateCpf = StreamTransformer<String, String>.fromHandlers(
+    handleData: (cpf, sink){
+      if(cpf.length > 10){
+        sink.add(cpf);
+      } else {
+        sink.addError("CPF inválida!");
+      }
+    }
+  );
+
 }
